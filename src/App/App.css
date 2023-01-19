@@ -1,0 +1,13 @@
+.App {
+   text-align: center;
+}
+
+.divPadre{
+display: grid;
+justify-content: center;
+position: relative;
+justify-content: space-between;
+}
+
+
+

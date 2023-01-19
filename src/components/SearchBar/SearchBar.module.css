@@ -1,0 +1,40 @@
+.divSearch{
+display:flex;
+position: absolute;
+margin-left: 70vw;
+
+justify-content:space-around;
+width: 250px;
+height: 40px;
+
+}
+
+.buttonSearch,.buttonRandom{
+border-radius: .8rem;
+background-color: lightcoral;
+box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.buttonSearch :hover {background-color: #3e8e41}
+
+.buttonSearch:active{
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.buttonRandom :hover {background-color: #3e8e41}
+
+.buttonRandom:active{
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+
+.input{
+    border-radius: .8rem;
+    border-top: 3px solid black;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    
+}

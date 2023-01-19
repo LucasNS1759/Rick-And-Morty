@@ -1,0 +1,18 @@
+.divPadreDetail {
+    width: 100vw;
+    height: 100vw;
+    background-image: url("https://www.teahub.io/photos/full/162-1621646_gif-wallpapers-hd-wallpapercraft-free-outer-space-background.gif");
+    background-repeat: no-repeat;
+    background-size: 100vw 100vw;
+    display: flex;
+    position: relative;
+    text-align: center;
+}
+
+.contenedorInfo {
+    background-color: blanchedalmond;
+    width: fit-content;
+    height: fit-content;
+    opacity: 50%;
+}
+
