@@ -14,7 +14,7 @@ export const validate = (userData) => {
 
   if (!regexPassword.test(userData.password)) {
     errors.password =
-      "su contraseña debe tener entre 8 y 16 caracteres 1 numero y una mayuscula";
+      "su contraseña debe tener entre 8 y 16 caracteres 1 numero una mayuscula y un simbolo";
   }
   
   if (regexPassword.test(userData.password)) {

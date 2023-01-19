@@ -7,6 +7,8 @@
     display: flex;
     position: relative;
     text-align: center;
+    font-size: 1.3rem;
+    
 }
 
 .contenedorInfo {
@@ -14,5 +16,17 @@
     width: fit-content;
     height: fit-content;
     opacity: 50%;
+    margin-left: 5rem;
+    margin-top: 3rem;
+    
+}
+
+.imageDetail{
+width: 400px;
+height: 400px;
+border-radius: .5rem;
+margin-left: 20rem;
+margin-top: 3rem;
+border: 3px solid white;
 }
 

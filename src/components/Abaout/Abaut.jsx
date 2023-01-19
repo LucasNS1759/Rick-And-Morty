@@ -22,7 +22,7 @@ const Abaut = () => {
           >
             SoyHenry
           </a>,
-          nunca antes nada me habia despertado tanta pasion y ganas de aprender como es el mundo de la programacion, <br/> si bien este mundo es muy frustrante y exigente, ya que nunca vas a dejar de aprender cosas nuevas, es increiblemente satisfactorio a su vez.
+          nunca antes nada me habia despertado tanta pasion y ganas de aprender como es el mundo de la programacion, <br/> si bien este mundo es muy frustrante y exigente, ya que nunca vas a dejar de aprender cosas nuevas, es increiblemente satisfactorio a su vez.<br/> Espero poder seguir aprendiendo y creciendo en este mundo de la tecnologia y poder cambiar mi vida de la mano de la programacion.
           
         </p>
       </div>

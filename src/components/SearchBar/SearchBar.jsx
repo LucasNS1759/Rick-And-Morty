@@ -15,8 +15,8 @@ export default function SearchBar(props) {
   return (
     <div className={styles.divSearch}>
       <input className={styles.input} onChange={handler} type="search" value={character} />
-      <button className={styles.buttonSearch} onClick={() => onSearch(character)}>Agregar</button>
-      <button className={styles.buttonRandom} onClick={random}>Add Random</button>
+      <button className={styles.buttonSearch} onClick={() => onSearch(character)}>🔎</button>
+      <button className={styles.buttonRandom} onClick={random}>🎲</button>
     </div>
   );
 }

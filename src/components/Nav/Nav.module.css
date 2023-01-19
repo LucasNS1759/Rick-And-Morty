@@ -8,12 +8,14 @@ position:relative;
 width: 100vw;
 height: 5rem;
 margin:.5rem ;
+position: relative;
 }
 
-.btnInicio,.btnAbaout,.btnLogOut{
+.btnInicio,.btnAbaout,.btnLogOut,.btnFav{
     border-radius: .8rem;
     background-color: lightcoral;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    cursor: pointer;
     }
     
     .btnInicio :hover {background-color: #3e8e41}
@@ -23,6 +25,7 @@ margin:.5rem ;
         box-shadow: 0 5px #666;
         transform: translateY(4px);
     }
+   
     
     .btnAbaout :hover {background-color: #3e8e41}
     
@@ -39,3 +42,28 @@ margin:.5rem ;
         box-shadow: 0 5px #666;
         transform: translateY(4px);
     }
+    
+    .btnAbaout:active{
+        background-color: #3e8e41;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+    
+    .btnFav :hover {background-color: #3e8e41}
+    
+    .btnFav:active{
+        background-color: #3e8e41;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+    
+    .h3{
+    position: absolute;
+    margin-right: calc(80vw) ;
+    
+    
+    
+    }
+    
+   
+   

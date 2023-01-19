@@ -1,4 +1,4 @@
-/* eslint-disable no-unreachable */
+
 import { ADD_CHARACTER, DELETE_CHARACTER } from "../redux/types";
 
 const initialState = {
@@ -8,16 +8,27 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_CHARACTER:
-      break;
+      return {
+        ...state,
+        myFavorites: [...state.myFavorites, action.payload],
+      };
+      
+      
 
     case DELETE_CHARACTER:
-      break;
-      
+      return {
+        ...state,
+        myFavorites: [...state.myFavorites].filter((ele) => {
+          return ele.id !== action.payload;
+        }),
+      };
+     
+
     default:
       return {
         ...state,
       };
-      break;
+      
   }
 };
 

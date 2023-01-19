@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import styles from "../Error/Error.module.css";
 
 const Error = () => {
   return (
-    <div><h1>ERROR 404</h1></div>
-  )
-}
+    <div className={styles.error}>
+      <h1>UPS! Algo salio mal</h1>
+    </div>
+  );
+};
 
-export default Error
+export default Error;

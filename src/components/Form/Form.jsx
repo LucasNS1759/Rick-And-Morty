@@ -44,7 +44,7 @@ const Form = ({ login }) => {
           name="username"
           placeholder="Ingrese su usuario..."
         ></input>
-        {errors.username ? <p>{errors.username}</p> : ""}
+        {errors.username ? <p>⚠️{errors.username}</p> : ""}
         <label className={styles.label} htmlFor="password">
           password
         </label>
@@ -56,10 +56,10 @@ const Form = ({ login }) => {
           name="password"
           placeholder="Ingrese su contraseña..."
         ></input>
-        {errors.password ? <p>{errors.password}</p> : ""}
+        {errors.password ? <p>⚠️{errors.password}</p> : ""}
 
         <button onClick={handleSubmit} className={styles.submit} type="submit">
-          LOGIN
+        🔑
         </button>
       </form>
     </div>
