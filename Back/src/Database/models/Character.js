@@ -3,12 +3,14 @@ const { DataTypes } = require("sequelize");
 module.exports = (database) => {
   database.define("Character", {
     id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
+      type: DataTypes.UUID,
       primaryKey: true,
+      isUnique: true,
+      allowNull: false,
+      defaultValue: DataTypes.UUIDV4,
     },
     name: {
-      type: DataTypes.CITEXT,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     status: {
@@ -16,11 +18,22 @@ module.exports = (database) => {
       allowNull: false,
     },
     species: {
-      type: DataTypes.STRING,
+      type: DataTypes.ENUM(
+        "Human",
+        "Alien",
+        "Humanoid",
+        "Poopybuuhole",
+        "Mythological Creature",
+        "Animal",
+        "Robot",
+        "Cronenberg",
+        "Disease",
+        "unknown"
+      ),
       allowNull: false,
     },
     gender: {
-      type: DataTypes.ENUM("Female", "Male", "Genderless", "unknown"),
+      type: DataTypes.ENUM("Male", "Female", "unknown", "Genderless"),
       allowNull: false,
     },
     origin: {
@@ -30,6 +43,14 @@ module.exports = (database) => {
     image: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    location: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    created: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
     },
   });
 };

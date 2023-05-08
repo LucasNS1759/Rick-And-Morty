@@ -3,11 +3,9 @@ const { Sequelize } = require("sequelize");
 // const { DB_USER, DB_PASSWORD, DB_HOST,DB_NAME } = process.env;
 const CharacterModel = require("./models/Character");
 const FavoriteModel = require("./models/Favorite");
+const UserModel = require("./models/user");
 
-const DB_USER = "postgres";
-const DB_PASSWORD = "38893461";
-const DB_HOST = "localhost:5432";
-const DB_NAME = "rickandmorty";
+const {DB_USER,DB_PASSWORD,DB_HOST ,DB_NAME} = process.env 
 
 //no me anda la verga de .env
 
@@ -22,10 +20,28 @@ const database = new Sequelize(
 
 // EJERCICIO 03
 // Debajo de este comentario puedes ejecutar la función de los modelos.
-const {Character} = database.models
 
 CharacterModel(database);
 FavoriteModel(database);
+UserModel(database);
+
+
+const { Character } = database.models;
+const { Favorite } = database.models;
+const { User } = database.models;
+
+Favorite.belongsToMany(
+  User,
+  { through: "user_favorite" },
+  { timestamps: false }
+);
+
+User.belongsToMany(
+  Favorite,
+  { through: "user_favorite" },
+  { timestamps: false }
+);
+
 
 module.exports = {
   ...database.models,

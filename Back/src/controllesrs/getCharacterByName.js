@@ -1,14 +1,19 @@
 const { Character } = require("../Database/DB_connection.js");
-const { database } = require("../Database/DB_connection.js");
+
+const { Op } = require("sequelize");
 
 const getCharacterByName = async (name) => {
-  const response = await Character.findAll({
-    where: database.where(
-      database.fn("lower", database.col("name")),
-      database.fn("lower", name)
-    ),
+
+   const searchByName = await Character.findAll({
+    where: {
+      name: {
+        [Op.match]: name,
+      },
+    },
   });
-  return response;
+  if(searchByName.length === 0) return 
+  
+  return searchByName;
 };
 
 module.exports = getCharacterByName;

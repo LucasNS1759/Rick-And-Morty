@@ -1,25 +1,25 @@
-const {Favorite} = require("../Database/DB_connection")
+// const {Favorite} = require("../Database/DB_connection")
 
 
-const postFav = async (character) => { 
-    try {
-        const { name, status, species, gender, origin, image } = character;
+// const postFav = async (character) => { 
+//     try {
+//         const { name, status, species, gender, origin, image } = character;
 
-        if(!name || !status || !species || !gender || !origin || !image) throw new Error('Faltan datos obligatorios, master')
+//         if(!name || !status || !species || !gender || !origin || !image) throw new Error('Faltan datos obligatorios, master')
 
-        const newFav = {
-            name, status, species, gender, origin, image
-        };
+//         const newFav = {
+//             name, status, species, gender, origin, image
+//         };
 
-        await Favorite.create(newFav);
+//         await Favorite.create(newFav);
 
-        return newFav;
+//         return newFav;
 
-    } catch (error) {
-        return {error: error.message};
-    }
+//     } catch (error) {
+//         return {error: error.message};
+//     }
     
-}
+// }
 
 
-module.exports = postFav;
+// module.exports = postFav;
