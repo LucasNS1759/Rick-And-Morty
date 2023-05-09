@@ -1,4 +1,4 @@
-import { GET_ALL_CHARACTERS, GET_FAVORITES } from "./types";
+import { GET_ALL_CHARACTERS, GET_FAVORITES} from "./types";
 import axios from "axios";
 
 export const getAllCharacters = (params) => {
@@ -53,3 +53,4 @@ export const getFavorites = (nickName) => {
     }
   };
 };
+

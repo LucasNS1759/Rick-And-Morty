@@ -11,7 +11,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getAllCharacters());
-  }, [dispatch]);
+  }, []);
 
   return (
     <>

@@ -7,10 +7,11 @@ const uploadImage = require("../utils/cloudinary.js");
 
 const handlerCharacter = async (req, res) => {
   let querys = req.query;
+  let params =req.query;
   let { page = 0, pageSize = 8 } = req.query;
 
   try {
-    const response = await getAllCharacter(querys, page, pageSize);
+    const response = await getAllCharacter(querys, page, pageSize,params);
 
     res.status(200).json(response);
   } catch (error) {

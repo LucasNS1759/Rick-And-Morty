@@ -17,6 +17,7 @@ const Pagination = () => {
     if (state.allCharacters.nextPage === null) return;
     let querys = state.allCharacters.params;
     querys.page = state.allCharacters.nextPage;
+    console.log(querys);
     dispatch(getAllCharacters(`?${createSearchParams(querys)}`));
   };
 

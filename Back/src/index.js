@@ -2,7 +2,7 @@ const app = require("./app");
 const { database } = require("./Database/DB_connection");
 // const {saveApiData} = require("./controllesrs/saveApiData");
 
-database.sync({force:true}).then(async () => {
+database.sync({alter:true}).then(async () => {
   // await saveApiData();
   console.log("estoy conectado a", database.getDatabaseName());
   

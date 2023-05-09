@@ -42,7 +42,7 @@ const getApiData = async () => {
 };
 
 const saveApiData = async () => {
-  if(await Character.count() >0) return
+  // if(await Character.count() >0) return
   
 
   const allCharacters = await getApiData();

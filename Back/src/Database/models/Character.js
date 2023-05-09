@@ -14,26 +14,15 @@ module.exports = (database) => {
       allowNull: false,
     },
     status: {
-      type: DataTypes.ENUM("Alive", "Dead", "unknown"),
+      type: DataTypes.STRING,
       allowNull: false,
     },
     species: {
-      type: DataTypes.ENUM(
-        "Human",
-        "Alien",
-        "Humanoid",
-        "Poopybuuhole",
-        "Mythological Creature",
-        "Animal",
-        "Robot",
-        "Cronenberg",
-        "Disease",
-        "unknown"
-      ),
+      type: DataTypes.STRING,
       allowNull: false,
     },
     gender: {
-      type: DataTypes.ENUM("Male", "Female", "unknown", "Genderless"),
+      type: DataTypes.STRING,
       allowNull: false,
     },
     origin: {

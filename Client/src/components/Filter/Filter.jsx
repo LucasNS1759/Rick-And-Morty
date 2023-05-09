@@ -1,35 +1,47 @@
 import { useSelector, useDispatch } from "react-redux";
-// import { filterAndOrder,currentPage } from "../../redux/actions";
-import { useState } from "react";
+import { getAllCharacters } from "../../redux/actions";
+import { createSearchParams } from "react-router-dom";
 
 const Filter = () => {
   const state = useSelector((state) => state);
-
   const dispatch = useDispatch();
 
-  const [order, setOrder] = useState("");
-  const [filter, setFilter] = useState("");
-
   const handlerOnchangeOrder = (e) => {
-    // setOrder(e.target.value);
-    // dispatch(filterAndOrder(filter, e.target.value));
-    // dispatch(currentPage(1))
+    let querys = state.allCharacters.params;
+    let params = { sort: "name", ...{ ...querys } };
+    params.typeSort = e.target.value;
+    dispatch(getAllCharacters(`?${createSearchParams(params)}`));
   };
 
   const handlerOnchangeFilter = (e) => {
-    // setFilter(e.target.value);
-    // dispatch(filterAndOrder(e.target.value, order));
-    // dispatch(currentPage(1))
+    let querys = state.allCharacters.params;
+    querys[e.target.name] = e.target.value;
+    querys.page = 0;
+    dispatch(getAllCharacters(`?${createSearchParams(querys)}`));
   };
+
+  const arrSpecies = [
+    "Human",
+    "Alien",
+    "Humanoid",
+    "Poopybuuhole",
+    "Mythological Creature",
+    "Animal",
+    "Robot",
+    "Cronenberg",
+    "Disease",
+    "unknown",
+  ];
 
   return (
     <div>
       <select
-        className="select w-full max-w-xs"
+        name="gender"
+        className="select select-bordered select-xs  max-w-xs"
         onChange={handlerOnchangeFilter}
       >
         <option disabled selected>
-          Filter
+          Gender
         </option>
         <option value={"Male"}>Male</option>
         <option value={"Female"}>Female</option>
@@ -38,7 +50,38 @@ const Filter = () => {
       </select>
 
       <select
-        className="select w-full max-w-xs"
+        name="status"
+        className="select select-bordered select-xs  max-w-xs"
+        onChange={handlerOnchangeFilter}
+      >
+        <option disabled selected>
+          Status
+        </option>
+        <option value={"Alive"}>Alive</option>
+        <option value={"Dead"}>Dead</option>
+        <option value={"unknown"}>unknown</option>
+      </select>
+
+      <select
+        onChange={handlerOnchangeFilter}
+        name="species"
+        className="select select-bordered select-xs  max-w-xs"
+      >
+        <option disabled selected>
+          Species
+        </option>
+        {arrSpecies.map((specie, index) => {
+          return (
+            <option key={index} value={specie}>
+              {specie}
+            </option>
+          );
+        })}
+      </select>
+
+      <select
+        name="typeSort"
+        className="select select-bordered select-xs  max-w-xs"
         onChange={handlerOnchangeOrder}
       >
         <option disabled selected>

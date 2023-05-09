@@ -1,6 +1,7 @@
 const { Character } = require("../Database/DB_connection.js");
 
 const getAllCharacter = async (querys, page, pageSize) => {
+let params = {...querys}
   const offset = +page * +pageSize;
   const limit = +pageSize;
   let response;
@@ -54,10 +55,12 @@ const getAllCharacter = async (querys, page, pageSize) => {
       page >= Math.ceil(response.count / parseInt(pageSize)) - 1
         ? null
         : parseInt(page) + 1,
-    params: querys,
+    params: params,
     pageSize: pageSize,
     characters: response?.rows,
   };
+  
+  console.log(pagination.params);
   return pagination;
 };
 module.exports = getAllCharacter;

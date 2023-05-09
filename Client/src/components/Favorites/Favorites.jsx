@@ -8,7 +8,7 @@ const Favorites = () => {
   const state = useSelector((state) => state);
   useEffect(() => {
     dispatch(getFavorites("Lucas"));
-  });
+  },[]);
 
   const handlerDelete = async (id) => {
     try {
