@@ -9,6 +9,7 @@ export const getAllCharacters = (params) => {
         const response = await axios.get(
           `http://localhost:3001/rickandmorty/Characters${params}`
         );
+        if(!response.data.characters.length) return window.alert("no hay coincidencias para su busqueda")
         if (response.data) {
           return dispatch({
             type: GET_ALL_CHARACTERS,
@@ -37,6 +38,7 @@ export const getAllCharacters = (params) => {
 };
 
 export const getFavorites = (nickName) => {
+console.log(nickName);
   return async function (dispatch) {
     try {
       const response = await axios.get(

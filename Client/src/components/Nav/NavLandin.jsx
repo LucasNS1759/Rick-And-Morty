@@ -3,7 +3,7 @@
 const NavLandin = () => {
   return (
    
-  <nav className="relative py-6 mb-12 md:mb-20 bg-transparent">
+  <nav className="relative py-1  bg-slate-300 ">
       
       
       {/* NAV LOGIN REGISTER */}

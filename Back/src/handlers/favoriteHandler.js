@@ -4,8 +4,8 @@ const deleteControler = require("../controllesrs/deleteControler.js");
 
 const handlerGetCharactersFav = async (req, res) => {
   const { nickName } = req.query;
-
-  console.log("hola");
+console.log(nickName);
+ 
   try {
     const charactersFavs = await findFavorites(nickName);
     res.status(200).json(charactersFavs);

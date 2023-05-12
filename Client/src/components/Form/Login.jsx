@@ -1,16 +1,13 @@
-import  { useEffect, useState } from "react";
-
-
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Form = () => {
+const Login = () => {
   const navigate = useNavigate();
 
   const [userData, setUserData] = useState({
     nickName: "",
     password: "",
-    password2: "",
     email: "",
   });
 
@@ -19,13 +16,45 @@ const Form = () => {
   //   password: "",
   // });
 
+  const login = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:3001/user/login", {
+        nickName: userData.nickName,
+        email: userData.email,
+        password: userData.password,
+      });
+      console.log(response);
+      if (response.data) {
+        window.localStorage.setItem(
+          "token",
+          JSON.stringify(response.data.data.token)
+        );
+        window.localStorage.setItem(
+          "userId",
+          JSON.stringify(response.data.data.userId)
+        );
+        window.localStorage.setItem(
+          "nickName",
+          JSON.stringify(response.data.data.nickName)
+        );
+
+        navigate("/Home");
+
+        return;
+      } else window.alert("usuario invalido");
+    } catch (error) {
+      window.alert(error.message);
+    }
+  };
+
   const handleInputChange = (e) => {
     setUserData({
       ...userData,
       [e.target.name]: e.target.value,
     });
   };
-  
+
   useEffect(() => {
     let token = window.localStorage.getItem("token");
     if (token) {
@@ -35,24 +64,6 @@ const Form = () => {
       return;
     }
   }, [navigate]);
-
-
-
-  const hanldlerRegister = async (e) => {
-  e.preventDefault()
-    try {
-      const response = await axios.post("http://localhost:3001/user", {
-        nickName: userData.nickName,
-        email: userData.email,
-        password: userData.password,
-      });
-      if (response.data) {
-        window.alert("usuario registrado con exito");
-      }
-    } catch (error) {
-      window.alert(error.message);
-    }
-  };
 
   return (
     <div className="font-sans">
@@ -65,9 +76,9 @@ const Form = () => {
               htmlFor=""
               className="block mt-3 text-sm text-gray-700 text-center font-semibold"
             >
-              Registrate
+              inicia sesion
             </label>
-            <form method="#" action="#" className="mt-10">
+            <form className="mt-10">
               {/* NICKNAME */}
               <div>
                 <input
@@ -79,7 +90,6 @@ const Form = () => {
                   className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
                 />
               </div>
-
               {/* CORREO ELECTRONICO */}
               <div className="mt-7">
                 <input
@@ -104,56 +114,13 @@ const Form = () => {
                 />
               </div>
 
-              {/* PASSWORD */}
-              <div className="mt-7">
-                <input
-                  name="password2"
-                  value={userData.password2}
-                  onChange={(e) => handleInputChange(e)}
-                  type="password"
-                  placeholder="Confirmar contraseña"
-                  className="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
-                />
-              </div>
-
               <div className="mt-7">
                 <button
-                  onClick={(e)=>hanldlerRegister(e)}
+                  onClick={(e) => login(e)}
                   className="bg-blue-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105"
                 >
-                  Registrar
+                  iniciar
                 </button>
-              </div>
-
-              <div className="flex mt-7 items-center text-center">
-                <hr className="border-gray-300 border-1 w-full rounded-md" />
-                <label className="block font-medium text-sm text-gray-600 w-full">
-                  Registrate con
-                </label>
-                <hr className="border-gray-300 border-1 w-full rounded-md" />
-              </div>
-
-              <div className="flex mt-7 justify-center w-full">
-                <button className="mr-5 bg-blue-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
-                  Facebook
-                </button>
-
-                <button className="bg-red-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
-                  Google
-                </button>
-              </div>
-
-              <div className="mt-7">
-                <div className="flex justify-center items-center">
-                  <label className="mr-2">¿Ya tienes una cuenta?</label>
-                  <a
-                  
-                    href="/singUp"
-                    className=" text-blue-500 transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105"
-                  >
-                    Iniciar sesion
-                  </a>
-                </div>
               </div>
             </form>
           </div>
@@ -163,5 +130,4 @@ const Form = () => {
   );
 };
 
-export default Form;
-
+export default Login;

@@ -6,15 +6,18 @@ import axios from "axios";
 const Favorites = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
+
   useEffect(() => {
-    dispatch(getFavorites("Lucas"));
-  },[]);
+    let nickName = window.localStorage.getItem("nickName");
+
+    dispatch(getFavorites(JSON.parse(nickName)));
+  }, [dispatch]);
 
   const handlerDelete = async (id) => {
     try {
+      let nickName = window.localStorage.getItem("nickName");
       await axios.delete(`http://localhost:3001/favorites?id=${id}`);
-      dispatch(getFavorites("Lucas"));
-      
+      dispatch(getFavorites(JSON.parse(nickName)));
     } catch (error) {
       window.alert(error.message);
     }

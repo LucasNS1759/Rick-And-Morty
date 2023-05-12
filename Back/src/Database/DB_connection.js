@@ -5,7 +5,7 @@ const CharacterModel = require("./models/Character");
 const FavoriteModel = require("./models/Favorite");
 const UserModel = require("./models/user");
 
-const {DB_USER,DB_PASSWORD,DB_HOST ,DB_NAME} = process.env 
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
 
 //no me anda la verga de .env
 
@@ -25,7 +25,6 @@ CharacterModel(database);
 FavoriteModel(database);
 UserModel(database);
 
-
 const { Character } = database.models;
 const { Favorite } = database.models;
 const { User } = database.models;
@@ -42,6 +41,8 @@ User.belongsToMany(
   { timestamps: false }
 );
 
+Character.belongsToMany(User, { through: "user_character" });
+User.belongsToMany(Character, { through: "user_character" });
 
 module.exports = {
   ...database.models,

@@ -41,8 +41,10 @@ const handlerSaveCharacters = async (req, res) => {
 };
 
 const handlerPostCharacter = async (req, res) => {
-  const { name, status, species, gender, origin, location } = req.body;
+  const { name, status, species, gender, origin, location,userId } = req.body;
   const image = await uploadImage(req.body.image);
+  
+
 
   try {
     const response = await characterControllerPost(
@@ -52,7 +54,8 @@ const handlerPostCharacter = async (req, res) => {
       gender,
       origin,
       location,
-      image
+      image,
+      userId
     );
     res.status(200).json(response)
   } catch (error) {

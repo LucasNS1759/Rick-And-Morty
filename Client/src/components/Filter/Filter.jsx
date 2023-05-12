@@ -11,6 +11,7 @@ const Filter = () => {
     let params = { sort: "name", ...{ ...querys } };
     params.typeSort = e.target.value;
     dispatch(getAllCharacters(`?${createSearchParams(params)}`));
+    window.localStorage.setItem("querys", JSON.stringify(params));
   };
 
   const handlerOnchangeFilter = (e) => {
@@ -18,6 +19,7 @@ const Filter = () => {
     querys[e.target.name] = e.target.value;
     querys.page = 0;
     dispatch(getAllCharacters(`?${createSearchParams(querys)}`));
+    window.localStorage.setItem("querys", JSON.stringify(querys));
   };
 
   const arrSpecies = [

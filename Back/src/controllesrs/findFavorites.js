@@ -3,7 +3,7 @@ const { User } = require("../Database/DB_connection.js");
 
 const findFavorites = async (nickName) => {
   const allFavs = await Favorite.findAll({
-    include: [{ model: User, where: { nickName } }],
+    include: [{ model: User, where: { nickName:nickName } }],
   });
 
   return allFavs;

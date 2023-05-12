@@ -1,4 +1,5 @@
 const { Character } = require("../Database/DB_connection.js");
+const { User } = require("../Database/DB_connection.js");
 
 const characterControllerPost = async (
   name,
@@ -7,9 +8,10 @@ const characterControllerPost = async (
   gender,
   origin,
   location,
-  image
+  image,
+  userId
 ) => {
-  const response = await Character.create({
+  const character = await Character.create({
     name,
     status,
     species,
@@ -19,8 +21,18 @@ const characterControllerPost = async (
     image,
     created: true,
   });
+  console.log(character);
+  let user = await User.findByPk(userId);
 
-  return response;
+
+  await character.addUser(user);
+
+  const newCharacter = await Character.findByPk(character.id, {
+    include: [{ model: User }],
+  });
+
+ 
+  return newCharacter;
 };
 
 module.exports = characterControllerPost;
