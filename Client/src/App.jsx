@@ -10,8 +10,9 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import NavBar from "./components/Nav/NavBar";
-
 import CreateForm from "./components/FormCharacter/CreateForm";
+import Profile from "./components/Profile/Profile";
+
 
 function App() {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ function App() {
   }, [location.pathname, navigate]);
 
   return (
-    <main className="min-h-screen min-w-screen ">
+    <main className="grid grid-cols-1 min-h-screen">
       {/* RUTAS "PROTEGIDAS" PARA USUARIOS LOGUEADOS */}
       {location.pathname !== "/login" &&
         location.pathname !== "/singUp" &&
@@ -45,6 +46,7 @@ function App() {
         <Route path="/Login" element={<Form />} />
         <Route path="/singUp" element={<Login />} />
         <Route path="/CreateCharacter" element={<CreateForm/>} />
+        <Route path="/Profile" element={<Profile/>}/>
       </Routes>
       <Footer />
     </main>

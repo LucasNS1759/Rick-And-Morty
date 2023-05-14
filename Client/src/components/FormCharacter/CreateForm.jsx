@@ -65,11 +65,11 @@ const CreateForm = () => {
 
   return (
     <>
-      <div className="bg-white dark:bg-gray-900 ">
+      <div className="bg-white dark:bg-gray-900  ">
         <div className="flex justify-center h-screen">
           <div className="hidden bg-cover lg:block lg:w-2/3">
             <div
-              className="flex items-center h-full px-20 bg-gray-900 bg-opacity-40"
+              className="flex items-center h-full px-20 bg-gray-900 bg-opacity-40 "
               style={{ backgroundImage: `url('/rickmorty.jpg')` }}
             ></div>
           </div>
