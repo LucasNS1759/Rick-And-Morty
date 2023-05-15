@@ -44,6 +44,8 @@ const Profile = () => {
               species={character?.species}
               origin={character?.origin}
               location={character?.location}
+              setCharacters={setCharacters}
+              
               
             />
           );

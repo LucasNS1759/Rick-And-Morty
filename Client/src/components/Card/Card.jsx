@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line react/prop-types
 import axios from "axios";
+import { Link } from "react-router-dom";
 const Card = (props) => {
 
 const handlerPostFav = async () =>{
@@ -39,6 +40,11 @@ try {
     <h2 className="text-2xl">Name: {props.name}</h2>
     <h2 className="text-lg">Gender: {props.gender}</h2>
     <h2 className="text-lg">Specie: {props.species}</h2>
+    <Link to={`/Detail/${props.id}`}>
+    <button  className="absolute bottom-2  p-2 rounded-full bg-black hover:bg-gray-200">
+     More
+    </button>
+    </Link>
   </div>
 </div>
 

@@ -32,7 +32,7 @@ const ProfileCard = (props) => {
         "http://localhost:3001/rickandmorty/charactersCreated",
         {
           ...edit,
-          image : image64? image64 : props?.image
+          image: image64 ? image64 : props?.image,
         }
       );
       console.log(response);
@@ -67,13 +67,35 @@ const ProfileCard = (props) => {
     }
   };
 
+  const handlerDelete = async (id) => {
+    console.log(id);
+    try {
+      const userId = window.localStorage.getItem("userId");
+      await axios.delete(
+        `http://localhost:3001/rickandmorty/charactersCreated?id=${id}`
+      );
+
+      let currentsCharacters = await axios.get(
+        `http://localhost:3001/rickandmorty/charactersCreated?userId=${JSON.parse(
+          userId
+        )}`
+      );
+      props.setCharacters(currentsCharacters.data);
+    } catch (error) {
+      window.alert(error.message);
+    }
+  };
+
   return (
     <div
       key={props.id}
       className="each mb-10 m-2 shadow-lg border-gray-800 bg-gray-100 relative"
     >
       <img className="w-full" src={props.image} alt="props created" />
-      <div className="badge absolute top-0 lefth-0 bg-red-500 m-1 text-gray-200 p-1 px-2 text-xs font-bold rounded cursor-pointer">
+      <div
+        onClick={() => handlerDelete(props.id)}
+        className="badge absolute top-0 lefth-0 bg-red-500 m-1 text-gray-200 p-1 px-2 text-xs font-bold rounded cursor-pointer"
+      >
         X
       </div>
 
@@ -148,7 +170,7 @@ const ProfileCard = (props) => {
           <label htmlFor="">image</label>
           <input
             key={props?.id}
-            onChange={(event)=>uploadImage(event)}
+            onChange={(event) => uploadImage(event)}
             type="file"
             className="file-input file-input-bordered file-input-xs w-full max-w-xs"
           />

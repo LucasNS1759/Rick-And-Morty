@@ -5,9 +5,9 @@ const LandinPage = () => {
    <>
    <NavLandin/>
    
-    <div className=" min-h-screen" style={{ backgroundImage: `url('/rickmorty.jpg')` }}  >
+    <div className="grid grid-cols-1 min-h-screen" style={{ backgroundImage: `url('/rickmorty.jpg')` }}  >
   
-    <div className="hero-overlay bg-opacity-60"></div>
+    <div className=" bg-opacity-60"></div>
     <div className="hero-content text-center text-neutral-content">
       <div className="max-w-md">
         <h1 className="mb-5 text-5xl font-bold">Welcome to </h1>

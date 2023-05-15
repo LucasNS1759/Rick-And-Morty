@@ -28,11 +28,31 @@ const Favorites = () => {
       {state.favorites &&
         state.favorites.map((fav, index) => {
           return (
-            <div key={index}>
-              <button onClick={() => handlerDelete(fav.id)}>X</button>
-              <h1>{fav.name}</h1>
-              <img src={fav.image} alt="" />
-              <h2>{fav.species}</h2>
+            <div className=" ml-80 card w-96 bg-base-100 shadow-xl " key={index}>
+              <div className="card-body">
+                <button
+                  onClick={() => handlerDelete(fav.id)}
+                  className="btn btn-square btn-sm"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+
+                <h1 className="card-title">{fav.name}</h1>
+                <img src={fav.image} alt="" />
+              </div>
             </div>
           );
         })}

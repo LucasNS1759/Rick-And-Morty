@@ -2,7 +2,7 @@
 
 const NavLandin = () => {
   return (
-   
+   <>
   <nav className="relative py-1  bg-slate-300 ">
       
       
@@ -13,7 +13,7 @@ const NavLandin = () => {
               <div className="flex items-center">
                 <a
                   className="inline-block mr-9 text-sm font-semibold text-orange-900 hover:text-gray-900"
-                  href="#"
+                  href="/singUp"
                 >
                   Sign In
                 </a>
@@ -22,13 +22,14 @@ const NavLandin = () => {
                   href="#"
                 >
                   <div className="absolute top-0 right-full w-full h-full bg-orange-900 transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"></div>
-                  <span className="relative">Create an account</span>
+                  <a href="/login" className="relative">Create an account</a>
                 </a>
               </div>
             </div>
           </div>
         </div>
       </nav>
+      </>
  
   )
 }

@@ -49,13 +49,13 @@ const Pagination = () => {
           onClick={handlerPrimero}
           className="border rounded-md bg-gray-100 px-2 py-1 text-3xl leading-6 text-slate-400 transition hover:bg-gray-200 hover:text-slate-500 cursor-pointer shadow-sm"
         >
-          primero
+          «
         </div>
         <div
           onClick={handlerPreviewPage}
           className="border rounded-md bg-gray-100 px-2 py-1 text-3xl leading-6 text-slate-400 transition hover:bg-gray-200 hover:text-slate-500 cursor-pointer shadow-sm"
         >
-          PREV
+          ‹
         </div>
         <div className="text-slate-500">
           {state.allCharacters.currentPage + 1} /{" "}
@@ -65,13 +65,13 @@ const Pagination = () => {
           onClick={handlerNextPage}
           className="border rounded-md bg-gray-100 px-2 py-1 text-3xl leading-6 text-slate-400 transition hover:bg-gray-200 hover:text-slate-500 cursor-pointer shadow-sm"
         >
-          NEXT
+        ›
         </div>
         <div
           onClick={handlerUltimo}
           className="border rounded-md bg-gray-100 px-2 py-1 text-3xl leading-6 text-slate-400 transition hover:bg-gray-200 hover:text-slate-500 cursor-pointer shadow-sm"
         >
-          Ultimo
+            »
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ const { saveApiData } = require("../controllesrs/saveApiData.js");
 const characterControllerPost = require("../controllesrs/characterControllerPost");
 const charactersCreatedController = require("../controllesrs/charactersCreatedController");
 const characterUpdateController = require("../controllesrs/characterUpdateController.js");
+const characterDeleteController = require("../controllesrs/characterDeleteController.js")
 const uploadImage = require("../utils/cloudinary.js");
 
 const handlerCharacter = async (req, res) => {
@@ -88,7 +89,16 @@ const handlerPutCharactersCreated = async (req, res) => {
   }
 };
 
-const handlerDeleteCharactersCreated = async (req, res) => {};
+const handlerDeleteCharactersCreated = async (req, res) => {
+const {id} = req.query
+console.log(id);
+try {
+  const response = await characterDeleteController(id)
+  res.status(200).json(response)
+} catch (error) {
+  res.status(400).json({error:error.message})
+}
+};
 
 module.exports = {
   handlerCharacter,

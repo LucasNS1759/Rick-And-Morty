@@ -12,6 +12,7 @@ import Footer from "./components/Footer/Footer";
 import NavBar from "./components/Nav/NavBar";
 import CreateForm from "./components/FormCharacter/CreateForm";
 import Profile from "./components/Profile/Profile";
+import Detail from "./components/Detail/Detail";
 
 
 function App() {
@@ -47,6 +48,9 @@ function App() {
         <Route path="/singUp" element={<Login />} />
         <Route path="/CreateCharacter" element={<CreateForm/>} />
         <Route path="/Profile" element={<Profile/>}/>
+        <Route path="/Detail/:id" element={<Detail/>}/>
+        
+        
       </Routes>
       <Footer />
     </main>
