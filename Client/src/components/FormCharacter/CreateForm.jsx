@@ -47,19 +47,30 @@ const CreateForm = () => {
     }
   };
 
-  function createCharacter(e) {
-  e.preventDefault()
-    {
-      axios.post("http://localhost:3001/rickandmorty/characters", {
-        image: image,
-        name: character.name,
-        status: character.status,
-        species: character.species,
-        gender: character.gender,
-        origin: character.origin,
-        location: character.location,
-        userId :JSON.parse( window.localStorage.getItem("userId"))
-      });
+  async function createCharacter(e) {
+    e.preventDefault();
+
+    try {
+      let response = await axios.post(
+        "http://localhost:3001/rickandmorty/characters",
+        {
+          image: image,
+          name: character.name,
+          status: character.status,
+          species: character.species,
+          gender: character.gender,
+          origin: character.origin,
+          location: character.location,
+          userId: JSON.parse(window.localStorage.getItem("userId")),
+        }
+      );
+      if (response.data) {
+        alert("Personaje creado con exito");
+        setCharacter("");
+        setImage("");
+      }
+    } catch (error) {
+      window.alert(error.message);
     }
   }
 
@@ -219,7 +230,10 @@ const CreateForm = () => {
                   </div>
 
                   <div className="mt-6">
-                    <button onClick={createCharacter} className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                    <button
+                      onClick={createCharacter}
+                      className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50"
+                    >
                       Crear
                     </button>
                   </div>

@@ -27,8 +27,8 @@ const Profile = () => {
 
   return (
     <>
-      <div className="heading text-center font-bold text-2xl m-5 text-gray-100">
-        Full Responsive Video Cards
+      <div className="heading text-center font-bold text-2xl m-5 text-black-100">
+        Personajes Creados
       </div>
 
       <div className="holder mx-auto w-10/12 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
@@ -45,6 +45,7 @@ const Profile = () => {
               origin={character?.origin}
               location={character?.location}
               setCharacters={setCharacters}
+              charactersCreated ={charactersCreated }
               
               
             />

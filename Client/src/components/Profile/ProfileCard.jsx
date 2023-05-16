@@ -35,7 +35,10 @@ const ProfileCard = (props) => {
           image: image64 ? image64 : props?.image,
         }
       );
-      console.log(response);
+      if(response.data){
+        alert("Personaje Modificado con exito")
+        props.charactersCreated()
+      } 
     } catch (error) {
       window.alert(error.message);
     }
@@ -118,24 +121,33 @@ const ProfileCard = (props) => {
           />
 
           <label htmlFor="">status</label>
-          <input
-            onChange={handlerEdit}
+          <select
             name="status"
-            value={edit.status}
-            type="text"
-            placeholder="Type here"
-            className="input input-bordered input-xs w-full max-w-xs"
-          />
+            onChange={handlerEdit}
+            className="select select-bordered select-xs w-full max-w-xs"
+          >
+            <option disabled selected>
+              Seleccione un status
+            </option>
+            <option value={"Alive"}>Alive</option>
+            <option value={"Dead"}>Dead</option>
+            <option value={"unknown"}>unknown</option>
+          </select>
 
           <label htmlFor="">gender</label>
-          <input
-            onChange={handlerEdit}
+          <select
             name="gender"
-            value={edit.gender}
-            type="text"
-            placeholder="Type here"
-            className="input input-bordered input-xs w-full max-w-xs"
-          />
+            onChange={handlerEdit}
+            className="select select-bordered select-xs w-full max-w-xs"
+          >
+            <option disabled selected>
+              Seleccione un genero
+            </option>
+            <option value={"Female"}>Female</option>
+            <option value={"Male"}>Male</option>
+            <option value={"Genderless"}>Genderless</option>
+            <option value={"unknown"}>unknown</option>
+          </select>
 
           <label htmlFor="">origin</label>
           <input
@@ -148,14 +160,27 @@ const ProfileCard = (props) => {
           />
 
           <label htmlFor="">species</label>
-          <input
-            onChange={handlerEdit}
+          <select
             name="species"
-            value={edit.species}
-            type="text"
-            placeholder="Type here"
-            className="input input-bordered input-xs w-full max-w-xs"
-          />
+            onChange={handlerEdit}
+            className="select select-bordered select-xs w-full max-w-xs"
+          >
+            <option disabled selected>
+              Seleccione un genero
+            </option>
+            <option value={"Human"}>Human</option>
+            <option value={"Alien"}>Alien</option>
+            <option value={"Humanoid"}>Humanoid</option>
+            <option value={"Poopybuuhole"}>Poopybuuhole</option>
+            <option value={"Mythological Creature"}>
+              Mythological Creature
+            </option>
+            <option value={"Animal"}>Animal</option>
+            <option value={"Robot"}>Robot</option>
+            <option value={"Cronenberg"}>Cronenberg</option>
+            <option value={"Disease"}>Disease</option>
+            <option value={"unknown"}>unknown</option>
+          </select>
 
           <label htmlFor="">location</label>
           <input
